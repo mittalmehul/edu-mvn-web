@@ -14,19 +14,27 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
-<build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat7-maven-plugin</artifactId>
-			<version>2.2</version>
-			<configuration>
-				<server>TomcatServer</server>
-				<url>http://localhost:8181/manager/text</url>
-			</configuration> 
-		</plugin>
-	</plugins>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat -->
+	<dependency>
+    		<groupId>org.apache.tomcat</groupId>
+    		<artifactId>tomcat</artifactId>
+    		<version>10.0.0-M1</version>
+    		<type>pom</type>
+	</dependency>
+</dependencies>
+<distributionManagement>
+    <repository>
+      <id>sample-web</id>
+      <name>Releases</name>
+      <url>http://localhost:8181/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>sample-web</id>
+      <name>Snapshot</name>
+      <url>http://localhost:8181/repository/maven-snapshots</url>
+    </snapshotRepository>
+</distributionManagement>
+  <build>
     <finalName>SampleWebApp</finalName>
   </build>
 </project>
